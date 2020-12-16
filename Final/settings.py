@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import airplane
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'SmartFarm',
+    'airplane',
 ]
 
 MIDDLEWARE = [
@@ -77,7 +80,7 @@ WSGI_APPLICATION = 'Final.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/Users/kailash/Desktop/data.db',
+        'NAME': '/Users/kailash/Desktop/database.db',
     }
 }
 
@@ -101,6 +104,11 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+STATICFILES_DIRS = (
+    airplane.cache_path(),
+)
+
+AIRPLANE_MODE = airplane.USE_CACHE
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 

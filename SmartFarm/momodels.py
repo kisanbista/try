@@ -8,12 +8,12 @@
 from django.db import models
 
 
-class Sensordata(models.Model):
-    sample_id = models.AutoField(primary_key=True,null = False, blank = True)
+class Sensor(models.Model):
+    sample_id = models.AutoField(primary_key=True, blank=True, null=True)
     humidity = models.IntegerField()
     temperature = models.IntegerField()
     moisture = models.IntegerField()
-    predicted_crop = models.CharField(max_length = 10)
+    predicted_crop = models.CharField()
 
     class Meta:
         managed = False

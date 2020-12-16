@@ -21,7 +21,7 @@ def turnon(request):
 	for l in blah:
 		sys.stdout.write(l)
 		sys.stdout.flush()
-		time.sleep(0.2)
+		time.sleep(0.6)
 	pass
 def turnoff(request):
 	print("Turned off")
@@ -29,5 +29,5 @@ def turnoff(request):
 	for l in blah:
 		sys.stdout.write(l)
 		sys.stdout.flush()
-		time.sleep(0.2)
+		time.sleep(0.6)
 	pass
