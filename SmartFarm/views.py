@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from .models import Sensordata
-import time
 import sys
+from subprocess import run,PIPE
+
 
 def index(request):
 	data = Sensordata.objects.all().order_by('-sample_id')[:5]
@@ -13,20 +14,7 @@ def more(request,sample_id):
 	print(obj.humidity)
 	return render(request, "SmartFarm/more.html",{"object":obj})
 
-def turnon(request):
-	print("Turned on")
+def turnonoff(request):
+	onoff = request.GET.get("onoff")
+	out = run([sys.executable,'//Users//kailash//Desktop//hello.py',onoff],shell = False, stdout = PIPE)
 
-	blah = "This is written slowly\n"
-	for l in blah:
-		sys.stdout.write(l)
-		sys.stdout.flush()
-		time.sleep(0.6)
-	pass
-def turnoff(request):
-	print("Turned off")
-	blah = "This is written slowly\n"
-	for l in blah:
-		sys.stdout.write(l)
-		sys.stdout.flush()
-		time.sleep(0.6)
-	pass
